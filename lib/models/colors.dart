@@ -4,6 +4,7 @@ class ColorPallete {
   // STI
   Color stiColor = const Color(0xFF0072bc);
   Color white = const Color(0xFFFFFFFF);
+  Color black = const Color(0xFF000000);
   Color stiBackground = const Color(0xFFfff200);
 
   // Font Color Header Drawer
