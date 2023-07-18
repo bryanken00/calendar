@@ -42,8 +42,6 @@ class _CalendarPage extends State<CalendarPage> {
       dataSched = mySched.sunday;
       day = "Sunday";
     }
-    // dataSched = mySched.wednesday;
-    // day = "Wednesday";
   }
 
   @override
