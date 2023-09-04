@@ -38,7 +38,7 @@ class _PanelGen extends State<PanelGen> {
                     children: <Widget>[
                       // Time
                       Text(
-                        '${sched![0]['start']}',
+                        '${sched![index]['start']}',
                         style: TextStyle(
                             color: color.stiColor,
                             fontSize: 16,
@@ -48,7 +48,7 @@ class _PanelGen extends State<PanelGen> {
                         lines: [20.0, 30.0, 40.0, 10.0],
                       ),
                       Text(
-                        '${sched![0]['end']}',
+                        '${sched![index]['end']}',
                         style: TextStyle(
                             color: color.stiColor,
                             fontSize: 16,
@@ -80,7 +80,7 @@ class _PanelGen extends State<PanelGen> {
                           Row(
                             children: <Widget>[
                               Text(
-                                '${sched![0]['start']} - ${sched![0]['end']}',
+                                '${sched![index]['start']} - ${sched![index]['end']}',
                                 style: TextStyle(
                                     color: color.white,
                                     fontSize: 16,
@@ -88,7 +88,7 @@ class _PanelGen extends State<PanelGen> {
                               ),
                               const VerticalDivider(),
                               Text(
-                                'Room - 401',
+                                '${sched![index]['room']}',
                                 style: TextStyle(
                                     color: color.white,
                                     fontSize: 16,
@@ -98,7 +98,7 @@ class _PanelGen extends State<PanelGen> {
                           ),
                           const SizedBox(height: 15),
                           Text(
-                            '${sched![0]['subject']}',
+                            '${sched![index]['subject']}',
                             style: TextStyle(
                                 color: color.stiBackground,
                                 fontSize: 24,

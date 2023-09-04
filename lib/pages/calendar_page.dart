@@ -19,6 +19,7 @@ class _CalendarPage extends State<CalendarPage> {
   void setDate() {
     DateTime now = DateTime.now();
     int currentDayOfWeek = now.weekday;
+    // dataSched = mySched.sunday;
 
     if (currentDayOfWeek == 1) {
       dataSched = mySched.monday;
@@ -52,34 +53,36 @@ class _CalendarPage extends State<CalendarPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: color.white,
-      child: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // Title
-            Text(
-              'Today Class: $day',
-              style: TextStyle(
-                color: color.stiColor,
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
+    return SingleChildScrollView(
+      child: Container(
+        color: Colors.white,
+        child: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Title
+              Text(
+                'Today Class: $day',
+                style: TextStyle(
+                  color: color.stiColor,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
 
-            // Divier
-            Container(
-              padding: const EdgeInsets.only(left: 1, right: 1, bottom: 10),
-              child: Divider(
-                color: Colors.grey[700],
+              // Divider
+              Container(
+                padding: const EdgeInsets.only(left: 1, right: 1, bottom: 10),
+                child: Divider(
+                  color: Colors.grey[700],
+                ),
               ),
-            ),
 
-            // Content
-            PanelGen(dataSched: dataSched),
-          ],
+              // Content
+              PanelGen(dataSched: dataSched),
+            ],
+          ),
         ),
       ),
     );
