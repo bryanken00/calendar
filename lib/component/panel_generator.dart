@@ -24,6 +24,17 @@ class _PanelGen extends State<PanelGen> {
   }
 
   @override
+  void didUpdateWidget(PanelGen oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.dataSched != oldWidget.dataSched) {
+      // Update the data when dataSched changes
+      setState(() {
+        sched = widget.dataSched;
+      });
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       children: List.generate(

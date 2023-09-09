@@ -121,4 +121,18 @@ class MySchedule {
       'room': 'BAHAY',
     },
   ];
+
+  List<Map<String, dynamic>> getAllSchedules() {
+    List<Map<String, dynamic>> allSchedules = [];
+
+    allSchedules.addAll(monday);
+    allSchedules.addAll(tuesday);
+    allSchedules.addAll(wednesday);
+    allSchedules.addAll(thursday);
+    allSchedules.addAll(friday);
+    allSchedules.addAll(saturday);
+    allSchedules.addAll(sunday);
+
+    return allSchedules;
+  }
 }

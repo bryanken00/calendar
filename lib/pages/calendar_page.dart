@@ -45,6 +45,29 @@ class _CalendarPage extends State<CalendarPage> {
     }
   }
 
+  void updateDay(String selectedDay) {
+    setState(() {
+      day = selectedDay;
+      if (selectedDay == 'All') {
+        dataSched = mySched.getAllSchedules();
+      } else if (selectedDay == 'Monday') {
+        dataSched = mySched.monday;
+      } else if (selectedDay == 'Tuesday') {
+        dataSched = mySched.tuesday;
+      } else if (selectedDay == 'Wednesday') {
+        dataSched = mySched.wednesday;
+      } else if (selectedDay == 'Thursday') {
+        dataSched = mySched.thursday;
+      } else if (selectedDay == 'Friday') {
+        dataSched = mySched.friday;
+      } else if (selectedDay == 'Saturday') {
+        dataSched = mySched.saturday;
+      } else if (selectedDay == 'Sunday') {
+        dataSched = mySched.sunday;
+      }
+    });
+  }
+
   @override
   void initState() {
     super.initState();
@@ -61,7 +84,7 @@ class _CalendarPage extends State<CalendarPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Title
+              //Title
               Text(
                 'Today Class: $day',
                 style: TextStyle(
@@ -71,11 +94,58 @@ class _CalendarPage extends State<CalendarPage> {
                 ),
               ),
 
-              // Divider
+              //Divider
               Container(
                 padding: const EdgeInsets.only(left: 1, right: 1, bottom: 10),
                 child: Divider(
                   color: Colors.grey[700],
+                ),
+              ),
+
+              SizedBox(
+                height: 60,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    for (String days in [
+                      'All',
+                      'Monday',
+                      'Tuesday',
+                      'Wednesday',
+                      'Thursday',
+                      'Friday',
+                      'Saturday',
+                      'Sunday',
+                    ])
+                      GestureDetector(
+                        onTap: () {
+                          updateDay(days);
+                          print('Tapped on $day');
+                        },
+                        child: Container(
+                          margin: const EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                            borderRadius:
+                                BorderRadius.circular(30), // Rounded edges
+                            color: Colors
+                                .blue, // Replace with your desired button color
+                          ),
+                          child: Center(
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                days,
+                                style: const TextStyle(
+                                  color: Colors
+                                      .white, // Replace with your desired text color
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                  ],
                 ),
               ),
 
